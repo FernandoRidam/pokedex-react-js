@@ -4,19 +4,30 @@ export const InputView = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+`;
+
+export const InputRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 52px;
+  overflow: hidden;
+  border: solid 1px ${({ theme, $error }) => $error
+    ? theme.colors.danger
+    : theme.colors.secondary
+  };
+  border-radius: 8px;
+  // vertical - horizontal
+  margin: 4px 0px;
 
   & > input {
+    flex: 1;
     width: 100%;
-    height: 52px;
-    border: solid 1px ${({ theme, error }) => error
-      ? theme.colors.danger
-      : theme.colors.secondary
-    };
-    border-radius: 8px;
+    height: 100%;
     background-color: transparent;
-
-    // vertical - horizontal
-    margin: 4px 0px;
+    border: none;
     // vertical - horizontal
     padding: 0px 8px;
 
@@ -30,6 +41,30 @@ export const InputView = styled.div`
     font-weight: 600;
     color: ${({ theme }) => theme.colors.placeholder};
     opacity: .5;
+  }
+`;
+
+export const IconButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0px 8px;
+  border: none;
+  background-color: transparent;
+  transition: all .4s;
+
+  & > svg {
+    font-size: 24px;
+    color: ${({ theme, $error }) => $error
+      ? theme.colors.danger
+      : theme.colors.secondary
+    };
+  }
+
+  &:active > svg {
+    opacity: .8;
+    scale: .95;
   }
 `;
 

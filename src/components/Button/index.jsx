@@ -12,7 +12,7 @@ export const Button = styled.button`
   font-size: 24px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.white};
-  transition: all .2s;
+  transition: all .4s;
 
   &:disabled {
     opacity: .5;

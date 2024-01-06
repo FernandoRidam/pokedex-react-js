@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import logo from '../../assets/logo.svg';
 import { Input } from "../../components/Input";
 
-import loginSchema from '../../schema/loginSchema';
+import registerSchema from '../../schema/registerSchema';
 import { Spacing } from "../../components/Spacing";
 import { Logo } from "../../components/Logo";
 import { Actions, Form } from "../../components/Form";
@@ -12,7 +12,7 @@ import { Main } from "../../components/Main";
 import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Register() {
   const navigate = useNavigate();
 
   const {
@@ -22,7 +22,7 @@ export default function Login() {
       isValid,
     }
   } = useForm({
-    resolver: yupResolver(loginSchema),
+    resolver: yupResolver(registerSchema),
     mode: 'onChange',
   });
 
@@ -38,12 +38,20 @@ export default function Login() {
         <Spacing $bottom={16}>
           <Input
             control={control}
+            name="name"
+            label="Name"
+          />
+        </Spacing>
+
+        <Spacing $bottom={16}>
+          <Input
+            control={control}
             name="username"
             label="Username"
           />
         </Spacing>
 
-        <Spacing $bottom={36}>
+        <Spacing $bottom={16}>
           <Input
             control={control}
             name="password"
@@ -52,13 +60,22 @@ export default function Login() {
           />
         </Spacing>
 
+        <Spacing $bottom={16}>
+          <Input
+            control={control}
+            name="confirmPassword"
+            label="Confirm Password"
+            type="password"
+          />
+        </Spacing>
+
         <Actions>
           <Spacing $bottom={24}>
-            <Button disabled={!isValid} $color="secondary" type="submit">SIGN IN</Button>
+            <Button disabled={!isValid} $color="secondary" type="submit">SAVE</Button>
           </Spacing>
 
           <Spacing>
-            <Button onClick={() => navigate('/register')} type="button" $color="primaryDark">SIGN UP</Button>
+            <Button onClick={() => navigate(-1)} type="button" $color="primaryDark">BACK</Button>
           </Spacing>
         </Actions>
       </Form>

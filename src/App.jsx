@@ -7,7 +7,7 @@ import { AuthLayout } from "./components/layouts/authLayout";
 
 import theme from "./theme";
 
-import router from "./routes";
+import authRouter from "./routes/authRoutes";
 
 import './global.css';
 
@@ -15,7 +15,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AuthLayout>
-        <RouterProvider router={router} />
+        <RouterProvider router={authRouter} />
       </AuthLayout>
     </ThemeProvider>
   );
