@@ -11,6 +11,7 @@ import { Actions, Form } from "../../components/Form";
 import { Main } from "../../components/Main";
 import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
+import { register } from "../../services/authServices";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -23,11 +24,26 @@ export default function Register() {
     }
   } = useForm({
     resolver: yupResolver(registerSchema),
+    defaultValues: {
+      name: 'Ridam',
+      username: 'ridam',
+      password: '123456',
+      confirmPassword: '123456',
+    },
     mode: 'onChange',
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const {
+      name,
+      username,
+      password,
+      confirmPassword,
+    } = data;
+
+    const { message } = await register(name, username, password, confirmPassword);
+
+    alert(message);
   };
 
   return (

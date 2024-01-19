@@ -1,7 +1,5 @@
 import { ThemeProvider } from "styled-components";
-import {
-  RouterProvider,
-} from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 
 import { AuthLayout } from "./components/layouts/authLayout";
 
