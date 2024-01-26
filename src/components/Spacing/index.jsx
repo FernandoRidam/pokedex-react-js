@@ -7,7 +7,9 @@ export const Spacing = styled.div`
     $right = 0,
     $bottom = 0,
     $left = 0,
+    $fullWidth = false,
   }) => `
+    width: ${$fullWidth ? '100%' : 'auto'};
     margin-top: ${$top}px;
     margin-right: ${$right}px;
     margin-bottom: ${$bottom}px;

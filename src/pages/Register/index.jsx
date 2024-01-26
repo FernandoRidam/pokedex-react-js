@@ -12,9 +12,14 @@ import { Main } from "../../components/Main";
 import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import { register } from "../../services/authServices";
+import { useStore } from "../../store";
 
 export default function Register() {
   const navigate = useNavigate();
+
+  const {
+    user,
+  } = useStore();
 
   const {
     handleSubmit,
@@ -41,9 +46,15 @@ export default function Register() {
       confirmPassword,
     } = data;
 
-    const { message } = await register(name, username, password, confirmPassword);
+    const { success, message, result } = await register(name, username, password, confirmPassword);
 
     alert(message);
+
+    if(success) {
+      user.setUserData(result);
+
+      navigate('/');
+    }
   };
 
   return (
