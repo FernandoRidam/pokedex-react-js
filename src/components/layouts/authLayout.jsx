@@ -1,14 +1,15 @@
-import styled from "styled-components";
+import { Outlet } from "react-router-dom";
+import { AuthSection } from "./styles";
+import { Header } from "../Header";
 
-import pokeball from '../../assets/pokeball.svg';
+export const AuthLayout = () => {
+  return (
+    <AuthSection>
+      <Header
+        layout="auth"
+      />
 
-export const AuthLayout = styled.section`
-  width: 100%;
-  height: 100%;
-  background: url(${pokeball});
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-clip: border-box;
-  background-color: ${({ theme }) => theme.colors.primary};
-`;
+      <Outlet />
+    </AuthSection>
+  );
+};

@@ -15,7 +15,7 @@ export const InputRow = styled.div`
   height: 52px;
   overflow: hidden;
   border: solid 1px ${({ theme, $error }) => $error
-    ? theme.colors.danger
+    ? theme.colors.fail
     : theme.colors.secondary
   };
   border-radius: 8px;
@@ -57,7 +57,7 @@ export const IconButton = styled.button`
   & > svg {
     font-size: 24px;
     color: ${({ theme, $error }) => $error
-      ? theme.colors.danger
+      ? theme.colors.fail
       : theme.colors.secondary
     };
   }
@@ -77,5 +77,5 @@ export const Label = styled.span`
 export const ErrorMessage = styled.span`
   font-size: 12px;
   font-weight: 600;
-  color: ${({ theme }) => theme.colors.danger};
+  color: ${({ theme }) => theme.colors.fail};
 `;

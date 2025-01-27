@@ -19,6 +19,7 @@ export default function Login() {
 
   const {
     user,
+    alert,
   } = useStore();
 
   const {
@@ -44,7 +45,7 @@ export default function Login() {
 
     const { success, message, result } = await login(username, password);
 
-    alert(message);
+    alert.openAlert(message, success ? 'success' : 'fail', 2);
 
     if(success) {
       user.setUserData(result);

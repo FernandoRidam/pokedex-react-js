@@ -13,6 +13,7 @@ export const SelectGridView = styled.div`
   align-items: center;
   justify-content: flex-end;
   padding: 12px 16px;
+  background-color: transparent;
 `;
 
 export const GridView = styled.div`
@@ -22,7 +23,7 @@ export const GridView = styled.div`
   };
   grid-gap: 16px;
   flex: 1;
-  padding: 0px 16px;
-  padding-bottom: 16px;
+  padding: 8px 16px 16px 16px;
+  overflow: auto;
   overflow-y: auto;
 `;

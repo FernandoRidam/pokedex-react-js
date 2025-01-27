@@ -1,14 +1,17 @@
+import { Outlet } from "react-router-dom";
 import { Header } from "../Header";
 import { AppSection, Main } from "./styles";
 
-export const AppLayout = ({
-  children,
-}) => {
+export const AppLayout = () => {
   return (
     <AppSection>
-      <Header />
+      <Header
+        layout="app"
+      />
 
-      <Main>{children}</Main>
+      <Main>
+        <Outlet />
+      </Main>
     </AppSection>
   );
 };

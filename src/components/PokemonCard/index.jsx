@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import { Spacing } from "../Spacing";
+import { Stats } from "../Stats";
 import { Type } from "../Type";
 import { Card, Column, Image, Name, Row } from "./styles";
 
@@ -6,9 +8,15 @@ export const PokemonCard = ({
   isGrid,
   pokemon,
 }) => {
+  const navigate = useNavigate();
+
   return isGrid
     ? (
-      <Card $isGrid={isGrid} $type={pokemon?.types[0].name}>
+      <Card
+        $isGrid={isGrid}
+        $type={pokemon?.types[0].name}
+        onClick={() => navigate(`/pokemon/${pokemon.id}`)}
+      >
         <Row>
           <Column>
             <Image $isGrid={isGrid} src={pokemon.imageUrl} />
@@ -45,7 +53,20 @@ export const PokemonCard = ({
               }
             </Column>
 
-            <Column>HP</Column>
+            <Column $justify="flex-end">
+              {
+                pokemon.stats
+                  .filter((stats) => ['HP', 'ATTACK', 'DEFENSE'].includes(stats.name))
+                  .map((stats) => (
+                    <Stats
+                      key={stats.name}
+                      type={pokemon?.types[0].name}
+                      label={stats.name}
+                      value={stats.value}
+                    />
+                  ))
+              }
+            </Column>
           </Row>
         </Column>
       </Card>

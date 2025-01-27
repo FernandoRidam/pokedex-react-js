@@ -19,6 +19,7 @@ export default function Register() {
 
   const {
     user,
+    alert,
   } = useStore();
 
   const {
@@ -48,7 +49,7 @@ export default function Register() {
 
     const { success, message, result } = await register(name, username, password, confirmPassword);
 
-    alert(message);
+    alert.openAlert(message, success ? 'success' : 'fail', 2);
 
     if(success) {
       user.setUserData(result);
@@ -62,7 +63,7 @@ export default function Register() {
       <Logo src={logo} />
 
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Spacing $bottom={16}>
+        <Spacing $fullWidth={true} $bottom={16}>
           <Input
             control={control}
             name="name"
@@ -70,7 +71,7 @@ export default function Register() {
           />
         </Spacing>
 
-        <Spacing $bottom={16}>
+        <Spacing $fullWidth={true} $bottom={16}>
           <Input
             control={control}
             name="username"
@@ -78,7 +79,7 @@ export default function Register() {
           />
         </Spacing>
 
-        <Spacing $bottom={16}>
+        <Spacing $fullWidth={true} $bottom={16}>
           <Input
             control={control}
             name="password"
@@ -87,7 +88,7 @@ export default function Register() {
           />
         </Spacing>
 
-        <Spacing $bottom={16}>
+        <Spacing $fullWidth={true} $bottom={16}>
           <Input
             control={control}
             name="confirmPassword"
@@ -97,12 +98,8 @@ export default function Register() {
         </Spacing>
 
         <Actions>
-          <Spacing $bottom={24}>
+          <Spacing $fullWidth={true} $bottom={24}>
             <Button disabled={!isValid} $color="secondary" type="submit">SAVE</Button>
-          </Spacing>
-
-          <Spacing>
-            <Button onClick={() => navigate(-1)} type="button" $color="primaryDark">BACK</Button>
           </Spacing>
         </Actions>
       </Form>

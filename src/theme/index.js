@@ -8,8 +8,11 @@ const theme = {
     secondary: '#FFCB05',
     secondaryDark: '#EEBE05',
 
-    dangerLight: '#F16C09',
-    danger: '#F14F09',
+    successLight: '#539D26',
+    success: '#3B890D',
+
+    failLight: '#F16C09',
+    fail: '#F14F09',
 
     defaultLight: '#A3A9B4',
     default: '#6D6D6D',

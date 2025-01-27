@@ -14,18 +14,22 @@ export const Card = styled.div`
     theme.colors.types[$type]?.main
   };
   box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.25);
+  transition: all .4s;
 
-  &:active > div > div > img, &:active > div > img {
-    scale: 1.2;
-    -webkit-filter: drop-shadow(5px 5px 5px #222);
-    filter: drop-shadow(5px 5px 5px #222);
+  &:active {
+    scale: .93;
   }
 `;
 
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: ${({ $justify = 'flex-start'}) => $justify};
   flex: 1;
+
+  div:last-of-type {
+    margin-bottom: 0px;
+  }
 `;
 
 export const Row = styled.div`
